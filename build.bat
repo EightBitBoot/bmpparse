@@ -1,6 +1,10 @@
 @echo off
 
+set WARN_DISABLE="/wd4710"
+set DEFINES="/D_CRT_SECURE_NO_WARNINGS"
+
 pushd bin
-cl /diagnostics:caret /Zi ..\parse.c
+echo Compiling:
+cl /nologo /diagnostics:caret /Zi /Wall /WX %WARN_DISABLE% %DEFINES% ..\parse.c
 popd
 
